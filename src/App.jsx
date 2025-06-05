@@ -14,8 +14,7 @@ import NotFound from "./pages/NotFound";
 export default function App() {
   const navigate = useNavigate();
 
-  const [user, setUser] = useState(null); // user = { username, role }
-
+  const [user, setUser] = useState(null); 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -26,7 +25,7 @@ export default function App() {
   const handleLogin = (user) => {
     localStorage.setItem("user", JSON.stringify(user));
     setUser(user);
-    navigate("/"); // quay về trang chủ
+    navigate("/"); 
   };
 
   const handleLogout = () => {
