@@ -1,11 +1,12 @@
-
-
-// components/Logout.jsx
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function Logout({ onLogout }) {
+export default function Logout() {
+  const navigate = useNavigate();
+
   useEffect(() => {
-    onLogout(); // thực hiện logout khi truy cập
+    localStorage.clear();
+    navigate('/login');
   }, []);
 
   return null;

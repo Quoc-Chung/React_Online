@@ -1,9 +1,16 @@
 // components/PrivateRoute.jsx
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
-export default function PrivateRoute({ isAuthenticated, children }) {
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace/>;
+export default function PrivateRoute({ user, children, requiredRole }) {
+  const location = useLocation();
+
+  if (!user) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
+
+  if (requiredRole && user.role !== requiredRole) {
+    return <Navigate to="/" replace />;
+  }
+
   return children;
 }
