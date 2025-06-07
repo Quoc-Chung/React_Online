@@ -1,0 +1,54 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+h2 {
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+th, td {
+    border: 1px solid black;
+     padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #9fc870;
+}
+
+
+
+
+/* Cột cuối không có viền */
+.no-border {
+  border: none;
+}
+
+/* Style nút */
+.action-btn {
+  margin: 2px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.action-btn.add {
+  background-color: #28a745;
+}
+
+.action-btn.edit {
+  background-color: #ffc107;
+  color: black;
+}
+
+.action-btn.delete {
+  background-color: #dc3545;
+}
