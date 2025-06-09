@@ -1,0 +1,8 @@
+- Ẩn/Hiện nội dung: 
+
+    Mô tả: Có nút toggle để ẩn/hiện đoạn văn bản.
+
+    State: { isVisible: false }
+
+    Actions: TOGGLE_VISIBILITY
+
