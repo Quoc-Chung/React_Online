@@ -1,0 +1,11 @@
+Chuyển đổi chế độ sáng/tối (Dark mode)
+Mô tả: Click nút để chuyển giữa chế độ sáng và tối.
+
+State: { theme: 'light' }
+
+Actions: TOGGLE_THEME
+
+CÓ HAI NÚT: 
+  KHI BẤM NÚT BẬT SÁNG THÌ ĐỔI NỀN SANG SÁNG  
+
+  KHI NHẤN NÚT TỐT THÌ CHUYỂN MÀU SANG TỐI 
