@@ -1,0 +1,6 @@
+🗂️ Quản lý người dùng đăng nhập
+Mô tả: Người dùng đăng nhập và đăng xuất.
+State: { user: {}, isLoggedIn: false }
+
+
+Actions: LOGIN, LOGOUT
