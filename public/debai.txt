@@ -1,0 +1,16 @@
+5. Giỏ hàng (Shopping Cart)
+Mô tả: Thêm sản phẩm vào giỏ, xóa sản phẩm, tính tổng tiền.
+State: { cart: [], total: 0 }
+
+
+Actions: ADD_TO_CART, REMOVE_FROM_CART, HIEN THI DANH SACH SAN PHAM , CALCULATE_TOTAL   
+
+- Chúng ta sẽ có ba nhiệm vụ chính, tương ứng với ba action là: 
+     + Thêm sản phẩm  : ADD_TO_CART ( TRUYỀN VÀO SẢN PHẨM CẦN THÊM )
+
+     + Xóa sản phẩm : REMOVE_TO_CART (TRUYỀN VÀO ID CỦA SẢN PHẨM CẦN XÓA)
+
+     + Tính tổng tiền: CALCULATE_TOTAL (KHÔNG TRUYỀN VÀO CÁI GÌ)
+
+- Chúng ta lưu là lưu một mảng trống lưu trữ mặt hàng. 
+
