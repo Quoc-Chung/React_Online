@@ -1,0 +1,21 @@
+- Cách dùng react boostrap như nào: 
+
+npm install react-bootstrap bootstrap
+
+
+- Trong file src/index.js hoặc src/main.jsx, thêm dòng sau một lần duy nhất:
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+=============================================================================================================  
+⚙️ Bước 1: Gỡ react & react-dom sai phiên bản
+
+npm uninstall react react-dom
+⚙️ Bước 2: Cài đúng phiên bản react và react-dom
+
+npm install react@18 react-dom@18
+⚙️ Bước 3: (Khuyến nghị) Gỡ & cài lại react-bootstrap và bootstrap
+
+npm uninstall react-bootstrap bootstrap
+npm install react-bootstrap@2 bootstrap@5
