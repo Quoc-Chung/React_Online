@@ -1,0 +1,59 @@
+Context API: 
+   + Dễ học  
+   
+   + Là một API được tích hợp sẵn 
+
+   + Chỉ thích hợp với dự án nhỏ. 
+Redux: 
+   + Khó học hơn , phải nắm nhiều kiến thức và cú pháp mới.  
+   + Phù hợp với mọi loại dự án. 
+
+- Để sử dụng Context trong React  JS, chúng ta sẽ có 3 bước chính: 
+   + Bước 1: Tạo Context (AppContext) bằng cách dùng creact Context. 
+
+   + Bước 2: Quyết định xem Context chúng ta vừa tạo sẽ được sử dụng ở đâu 
+   bằng cách bọc <[TenContext].Provider>  ví dụ như AppContext.Provider từ 
+   bên ngoài component đó thì tất cả components con của nó đều có thể lấy được 
+   dữ liệu từ Context. 
+
+   + Bước 3: Sử dụng useContext hay còn gọi là Comsumer (tiêu thụ) 
+          + useContext 
+
+          + <[Tên_context].Comsumer> (ÁP DỤNG VỚI CLASS CONPONENT)
+
+-  Tóm tắt 3 bước chính (với ví dụ cụ thể): 
+       + Giả sử bạn muốn tạo một UserContext để chia sẻ thông tin người dùng giữa 
+       nhiều component. 
+
++ File: UserContext.js    
+
+import { createContext } from 'react';
+
+const UserContext = createContext();
+
+export default UserContext;
+
+
++ Dùng Provider bọc lại cái mà chúng ta sẽ sử dụng: 
+
+import UserContext from './UserContext';
+
+const [user, setUser] = useState({ name: "Nguyễn Văn A", age: 25 });
+
+
+<UserContext.Provider value={user}>
+      <div>
+        <h1>Ứng dụng sử dụng Context</h1>
+        <ThongTinNguoiDung />
+      </div>
+</UserContext.Provider>
+
++ Lấy ra giá trị mà mình muốn dùng: 
+
+import UserContext from './UserContext';
+
+const user = useContext(UserContext);
+
+<p>Tên: {user.name}</p>
+<p>Tuổi: {user.age}</p>
+===================================================================================================== 
