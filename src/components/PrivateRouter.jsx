@@ -19,7 +19,7 @@ const PrivateRouter = ({ children }) => {
     setShowModal(false);
     setTimeout(() => {
       navigate("/login", {
-        state: { from: location.pathname }, // 👈 Sử dụng location đúng cách
+        state: { from: location.pathname }, 
       });
     }, 300);
   };

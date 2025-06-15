@@ -19,3 +19,33 @@ npm install react@18 react-dom@18
 
 npm uninstall react-bootstrap bootstrap
 npm install react-bootstrap@2 bootstrap@5
+=======================================================================  
+
+components/RoleBasedRoute.js
+
+import { Navigate } from "react-router-dom";
+
+
++ children: chính là nội dung (component) được bọc bên trong <RoleBasedRoute>
++ allowedRoles: là một mảng chứa các vai trò được phép truy cập route này 
+(ví dụ ["admin", "manager"])
+
+
+const RoleBasedRoute = ({ children, allowedRoles }) => { 
+
+  + Thường là JWT (JSON Web Token) lưu khi người dùng đăng nhập → dùng để xác thực người dùng.
+  const token = localStorage.getItem("token");
+
+  + Lấy ra quyền từ bên trong project. 
+  const role = localStorage.getItem("role");
+
+  + Nếu có không có quyền thì chuyển hướng đến trang login 
+  if (!token) return <Navigate to="/login" />;
+
+  + Nếu có quyền thì tiếp tục check xem có quyền truy cập không, nếu không có quyền truy cập thì dùng navigate chuyển hướng tới trang đăng nhập. 
+  if (!allowedRoles.includes(role)) return <Navigate to="/unauthorized" />;
+
+  return children;
+};
+
+export default RoleBasedRoute;
