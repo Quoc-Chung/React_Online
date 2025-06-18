@@ -1,0 +1,9 @@
+- Sử dụng Context API để chia sẻ giỏ hàng (cart) giữa nhiều conmponent như ProductList, Cart, tránh phải 
+truyền props lòng vòng và gây khó hiểu và phức tạp cho việc truyền hết từ đầu này để đầu kia. 
+
+
+1️⃣ createContext()	    Tạo context để chia sẻ dữ liệu
+2️⃣	CartProvider	    Chứa state và các hàm thao tác giỏ hàng
+3️⃣	useContext()	    Component con truy cập context
+4️⃣	Bao bọc App	        Toàn ứng dụng có quyền dùng context
+5️⃣	Hiển thị UI	        Dùng state từ context để render giao diện

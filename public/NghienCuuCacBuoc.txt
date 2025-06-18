@@ -1,0 +1,96 @@
+- Sử dụng Context API trong React JS từng bước: 
+
++ Context API là một cách quản lí state toàn cục trong React mà không  
+cần truyền props qua nhiều cấp component. 
+
++ Chi tiết cách sử dụng: 
+
+B1: Tạo Context: (TA CỨ NGẦM HIỂU NHƯ TẠO CƠ SỞ DỮ LIỆU HAY KHO LƯU TRỮ )
+
+contexts/MyContext.js
+
+import { createContext } from 'react';
+
+const MyContext = createContext();
+
+export default MyContext;
+
++ Bước này giúp tạo một "kho dữ liệu" trắng chưa có gì. 
++ Nó giống như tạo một database trống, chưa có dữ liệu , chỉ định nghĩa cấu trúc 
++ createContext() giống như việc khởi tạo một database mới , nhưng chưa có table 
+hay bảng dữ liệu. 
+
+
+B2: Tạo Provider Component (TA CỨ NGẦM HIỂU LÀ TẠO DATABASE HAY DỮ LIỆU SẼ ĐƯỢC 
+CHIA SẺ TRONG ỨNG DỤNG )
+
++ Bước này giúp ta đổ dữ liệu vào database và chia sẻ ra toàn bộ ứng dụng. 
+
++ Provider cũng giống như "Server" cung cấp dữ liệu , dữ liệu sẽ được lưu trữ ở đây 
+giống như tables trong database. 
+
+    const MyContext = createContext();
+
+import { createContext, useState } from 'react';
+
+const MyContext = createContext();
+
+export const MyContextProvider = ({chidren}) => { 
+   const [data , setData]  = useState({
+     theme: 'light', 
+     user : null, 
+     cartItem: [], 
+   }); 
+
+   /*- Định nghĩa các hàm thay đổi dữ liệu  -giống như các API enpoint -*/ 
+   const changeTheme = (newTheme) => { 
+      setData(pre => ({...pre, theme: newTheme})); 
+   }; 
+
+   const loginUser = (user) => { 
+     setData (pre => ({...pre, user: user}));
+   }; 
+
+   + provider giống như "mở cổng kết nối" để các component khác truy cập dữ liệu 
+
+   return ( 
+      <MyContext.Provider 
+          value = {{...data  /*- Dữ liệu hiện tại */ 
+          
+                    ,changeTheme  /*- Hàm thay đổi dữ liệu -*/ 
+                    , loginUser}} /*- Hàm 
+      >
+       {children} 
+      </MyContext.Provider>
+   )
+
+
+}
+
+B3: Bao bọc App này với Provider 
+
+- Nó cũng giống như việc ta kết nối ứng dụng với database. 
+- Mọi component bên trang đều có thể đọc / ghi dữ liệu. 
+
+import { useContext } from 'react';
+import MyContext from '../contexts/MyContext';
+
+
+const { theme, user, changeTheme } = useContext(MyContext);
+
+
+  return (
+    <header style={{ background: theme === 'light' ? '#fff' : '#000' }}>
+      <button onClick={() => changeTheme('dark')}>Toggle Theme</button>
+      {user && <span>Hello, {user.name}</span>}
+    </header>
+  );
+
+
+- Context API	Database Analogy
+- createContext()	Tạo database trống
+- Provider	Server cung cấp dữ liệu
+- useState trong Provider	Tables lưu trữ dữ liệu
+- Các hàm trong Provider	API endpoints để thay đổi dữ liệu
+- useContext()	Truy vấn dữ liệu từ database 
+

@@ -1,0 +1,50 @@
+- Bạn sẽ tạo một ứng dụng web sử dụng React và Context API để quản lý giỏ hàng. Ứng dụng này cho phép người dùng:
+
+    Xem danh sách sản phẩm.
+
+    Thêm/xóa sản phẩm vào giỏ hàng.
+
+    Cập nhật số lượng sản phẩm trong giỏ hàng.
+
+    Xem tổng giá trị giỏ hàng.
+
+    Lưu trữ giỏ hàng vào localStorage để duy trì trạng thái sau khi 
+    tải lại trang.
+
+    Sử dụng Context API để quản lý trạng thái giỏ hàng và chia sẻ 
+    giữa các component.
+
+
+    Thêm tính năng xóa toàn bộ giỏ hàng.
+    Thêm thông báo (toast) khi thêm/xóa sản phẩm hoặc gặp lỗi (dùng thư viện như react-toastify).
+
+    Thêm bộ lọc sản phẩm (theo giá, danh mục).
+    Tích hợp xác nhận trước khi xóa sản phẩm.
+    Thêm tính năng giảm giá (discount) dựa trên tổng giá trị giỏ hàng.
+
+
+    
+
+Sử dụng Context API để quản lý trạng thái giỏ hàng.
+
+   + CartContext: Quản lý trạng thái giỏ hàng (thêm, xóa, cập nhật số 
+lượng, tính tổng giá).
+
+   + ProductList: Hiển thị danh sách sản phẩm 
+
+   + Cart : Hiển thị giỏ hàng và cho phép cập nhật/ xóa sản phẩm 
+
+
+====================================================================== 
+
+CartContext được tạo bằng React.createContext() để lưu trữ trạng 
+thái giỏ hàng và các hàm quản lý (add, remove, update).
+
+CartProvider là component cung cấp context, sử dụng useState để 
+quản lý trạng thái giỏ hàng và useEffect để lưu vào localStorage.
+
+
+Các component con (ProductList, Cart) sử dụng useContext để truy 
+cập dữ liệu và hàm từ context.
+===================================================================================================== 
+
