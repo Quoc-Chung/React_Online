@@ -1,0 +1,101 @@
+/* <div className='container'>
+      <h1> Danh sach san pham </h1> 
+      <div className='product_list'>
+         {initialProducts.map((value, index) => (
+            <div className='productt_cart' key={index}>
+                 <h3> {value.name}</h3>
+                 <p>Giá: ${value.price}</p>
+                 <p>Tồn kho: {value.stock}</p>
+                  <div className="card-buttons">
+                     <button className="edit-btn">Sửa</button>
+                     <button className="delete-btn">Xóa</button>
+                  </div>
+            </div>
+         ))}
+         
+      </div>   
+</div> */
+body{
+    font-family:monospace;
+    background-color: #fdfdfd;
+    margin: 0; 
+    padding:20px;
+}
+.container{
+    max-width: 1200px;
+    margin:auto;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+.product_list{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    justify-content: center;
+}
+
+.productt_cart{
+   background-color:rgb(123, 228, 153); 
+   border-radius: 12px;
+   padding:10px;
+   width: calc(15% - 5px);
+   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.productt_cart:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.productt_cart h3 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+.productt_cart p {
+  text-align: center;
+  color: #555;
+}
+
+.card-buttons{
+    display: flex;
+    justify-content: center;
+    gap:10px;
+    margin: 10px 0px;
+
+
+}
+
+.edit-btn, 
+.delete-btn {
+    padding: 6px 12px; 
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+     transition: background-color 0.3s;
+}
+
+
+.edit-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
